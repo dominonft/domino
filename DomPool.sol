@@ -56,7 +56,7 @@ contract DomPool is Ownable, ERC20 {
     
     uint256 public feeA = 100;
     uint256 public feeB = 100;
-    address public feeOwner = 0x5baa5EA4a9C9E17cF3c71Da7a0E93e615b4B7a71;
+    address public feeOwner = 0xEEe4051F285bCbb35e4ca7BDB162583f990E0Cad;
     
     uint256 internal DIVISOR = 100;
     uint256 internal BASE_INIT = 1000000;
@@ -436,7 +436,7 @@ contract DomPool is Ownable, ERC20 {
 
 
     function bonusEndBlock(uint256 _period) public view returns (uint) {
-        return startBlock.add((_period+1).mul(REDUCE_PERIOD));
+        return startBlock.mul(_period+1).mul(REDUCE_PERIOD);
     }
 
     function period(uint256 blockNumber) public view returns (uint _period) {
